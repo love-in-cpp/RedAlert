@@ -37,11 +37,5 @@ public abstract class IEnemy : ICharacter
 
     protected abstract void PlayEffect();
 
-    protected void DoPlayEffect(string effectName)
-    {
-        // 加载特效 Todo
-        GameObject effectGO; // 特效的游戏物体
-        // 控制销毁 协程 Todo
-        
-    }
+    
 }

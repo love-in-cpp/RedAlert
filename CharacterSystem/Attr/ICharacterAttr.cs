@@ -11,6 +11,7 @@
     protected string mName;
     protected int mDmgDescValue;
 
+    public int currentHP => mCurrentHP;
     public ICharacterAttr(IAttrStrategy strategy)
     {
         mAttrStrategy = strategy;

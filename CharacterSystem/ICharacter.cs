@@ -56,6 +56,24 @@ public abstract class ICharacter
         
     }
 
+    public void Killed()
+    {
+         // Todo
+    }
+    protected void DoPlayEffect(string effectName)
+    {
+        // 加载特效 Todo
+        GameObject effectGO; // 特效的游戏物体
+        // 控制销毁 协程 Todo
+        
+    }
+    protected void DoPlaySound(string soundName)
+    {
+        AudioClip clip = null; // todo
+        mAudio.clip = clip;
+        mAudio.Play();
+    }
+
     public void PlayAnim(string animName)
     {
         mAnim.CrossFade(animName);
@@ -66,4 +84,5 @@ public abstract class ICharacter
         mNavAgent.SetDestination(targetPosition);
         PlayAnim("move");
     }
+    
 }
