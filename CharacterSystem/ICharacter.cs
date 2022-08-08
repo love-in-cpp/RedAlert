@@ -49,6 +49,11 @@ public abstract class ICharacter
     public virtual void UnderAttack(int damage)
     {
         mAttr.TakeDamage(damage);
+        
+        // 被攻击的效果 （没有被攻击的音效）、视效
+        
+        // 死亡效果 音效、视效 （只有战士有）
+        
     }
 
     public void PlayAnim(string animName)

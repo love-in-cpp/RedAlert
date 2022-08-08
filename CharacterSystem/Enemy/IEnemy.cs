@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
+using UnityEngine;
 
-public class IEnemy : ICharacter
+public abstract class IEnemy : ICharacter
 {
     protected EnemyFSMSystem mFSMSystem;
 
@@ -26,5 +27,21 @@ public class IEnemy : ICharacter
         attackState.AddTransition(EnemyTransition.NoSoldier,EnemyStateID.Chase);
         
         mFSMSystem.AddState(chaseState,attackState);
+    }
+
+    public override void UnderAttack(int damage)
+    {
+        base.UnderAttack(damage);
+        PlayEffect();
+    }
+
+    protected abstract void PlayEffect();
+
+    protected void DoPlayEffect(string effectName)
+    {
+        // 加载特效 Todo
+        GameObject effectGO; // 特效的游戏物体
+        // 控制销毁 协程 Todo
+        
     }
 }
