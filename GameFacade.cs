@@ -88,4 +88,5 @@ public class GameFacade
         mGameStateInfoUI.Release();
         mSoldierInfoUI.Release();
     }
+    
 }
