@@ -28,7 +28,6 @@ public abstract class Shape
     public abstract void Erase(Logger logger);
 
 }
-
 public class Round : Shape
 {
     public override void Draw(Logger logger)
@@ -91,7 +90,6 @@ public abstract class Logger
 {
     public abstract void Log(string shapeName);
 }
-
 public class DrawLogger:Logger
 {
     public override void Log(string shapeName)

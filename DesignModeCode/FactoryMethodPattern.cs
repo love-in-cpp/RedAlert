@@ -20,7 +20,6 @@ public abstract class PicReader
 {
     public abstract void Read();
 }
-
 public class GIFReader : PicReader
 {
     public override void Read()
@@ -28,7 +27,6 @@ public class GIFReader : PicReader
         Debug.Log("GIFReader is working");
     }
 }
-
 public class JPGReader : PicReader
 {
     public override void Read()
@@ -46,7 +44,6 @@ public abstract class PicReaderFactory
     }
     public abstract PicReader GetPicReader();
 }
-
 public class GIFReaderFactory:PicReaderFactory
 {
     public override PicReader GetPicReader()
@@ -54,7 +51,6 @@ public class GIFReaderFactory:PicReaderFactory
         return new GIFReader();
     }
 }
-
 public class JPGReaderFacotory : PicReaderFactory
 {
     public override PicReader GetPicReader()
