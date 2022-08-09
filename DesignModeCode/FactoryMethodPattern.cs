@@ -1,5 +1,4 @@
-﻿using System;using System.Runtime.InteropServices;
-using UnityEngine;
+﻿using UnityEngine;
  /*
   * 使用工厂方法模式设计一个程序来读取各种不同类型的图片格式，
   * 针对每一种图片格式都设计一个图片读取器，如GIF图片读取器用于读取GIF格式的图片、
