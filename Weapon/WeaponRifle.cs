@@ -16,4 +16,8 @@ public class WeaponRifle : IWeapon
     {
         mEffectDisplayTime = 0.3f;
     }
+
+    public WeaponRifle(int atk, float atkRange, GameObject gameObject) : base(atk, atkRange, gameObject)
+    {
+    }
 }

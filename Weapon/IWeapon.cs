@@ -26,6 +26,18 @@ public abstract class IWeapon
     public float AtkRange => mAtkRange;
     public int Atk => mAtk;
 
+    public IWeapon(int atk, float atkRange, GameObject gameObject)
+    {
+        mAtk = atk;
+        mAtkRange = atkRange;
+        mGameObject = gameObject;
+
+        Transform effect = mGameObject.transform.Find("Effect");
+        mParticle = effect.GetComponent<ParticleSystem>();
+        mLine = effect.GetComponent<LineRenderer>();
+        mLight = effect.GetComponent<Light>();
+        mAudio = effect.GetComponent<AudioSource>();
+    }
     public void Update()
     {
         if (mEffectDisplayTime > 0)
