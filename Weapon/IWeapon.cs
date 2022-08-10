@@ -26,6 +26,11 @@ public abstract class IWeapon
     public float AtkRange => mAtkRange;
     public int Atk => mAtk;
 
+    public ICharacter owner
+    {
+        set => mOwner = value;
+    }
+
     public IWeapon(int atk, float atkRange, GameObject gameObject)
     {
         mAtk = atk;

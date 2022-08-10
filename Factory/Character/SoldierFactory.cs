@@ -6,12 +6,6 @@ public class SoldierFactory:ICharacterFactory
     public ICharacter CreatCharacter<T>(WeaponType weaponType, Vector3 spawnPosition, int lv = 1) where T : ICharacter, new()
     {
         ICharacter character = new T();
-        
-        // 创建角色游戏物体
-        // 1. 加载 // 2. 实例化 todo
-        
-        // 添加武器 todo
-        
         // 
         string name = "";
         int maxHP = 0;
@@ -54,6 +48,16 @@ public class SoldierFactory:ICharacterFactory
         ICharacterAttr attr =
             new SoilderAttr(new SoilderAttrStrategy(), name, maxHP, moveSpeed, iconSprite, prefabName);
         character.attr = attr;
+        
+        // 创建角色游戏物体
+        // 1. 加载 // 2. 实例化 todo
+        GameObject characterGO = FactoryManager.assetFactory.LoadEnemy(prefabName);
+        characterGO.transform.position = spawnPosition;
+        character.gameObject = characterGO;
+        
+        // 添加武器 todo
+        IWeapon weapon = FactoryManager.weaponFactory.CreatWeapon(weaponType);
+        character.weapon = weapon;
         
         return null;
     }

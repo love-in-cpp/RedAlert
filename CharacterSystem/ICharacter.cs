@@ -11,13 +11,7 @@ public abstract class ICharacter
     protected NavMeshAgent mNavAgent;
 
     protected IWeapon mWeapon;
-
-    public IWeapon Weapon
-    {
-        get => mWeapon;
-        set => mWeapon = value;
-    }
-
+    
     public Vector3 Position
     {
         get
@@ -36,6 +30,29 @@ public abstract class ICharacter
     public ICharacterAttr attr
     {
         set => mAttr = value;
+    }
+
+    public GameObject gameObject
+    {
+        set
+        {
+            mGameObject = value;
+            mNavAgent = mGameObject.GetComponent<NavMeshAgent>();
+            mAudio = mGameObject.GetComponent<AudioSource>();
+            mAnim = mGameObject.GetComponentInChildren<Animation>();
+        }
+    }
+
+    public IWeapon weapon
+    {
+        set
+        {
+            mWeapon = value;
+            mWeapon.owner = this;
+            // Transform weaponPoint = mGameObject.transform.Find("") // 需要提供精确路径，麻烦
+            // 遍历实现 Todo
+            
+        }
     }
 
     public abstract void UpdateFSMAI(List<ICharacter> targets);
