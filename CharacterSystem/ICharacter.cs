@@ -50,8 +50,9 @@ public abstract class ICharacter
             mWeapon = value;
             mWeapon.owner = this;
             // Transform weaponPoint = mGameObject.transform.Find("") // 需要提供精确路径，麻烦
-            // 遍历实现 Todo
-            
+            // 遍历实现 
+            GameObject weaponPoint = UnityTool.FindChild(mGameObject, "weapon-point");
+            UnityTool.Attach(weaponPoint, mWeapon.gameObject);
         }
     }
 
