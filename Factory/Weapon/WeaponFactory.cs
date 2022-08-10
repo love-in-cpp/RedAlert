@@ -7,7 +7,7 @@ public class WeaponFactory:IWeaponFactory
     {
         IWeapon weapon = null;
         string assetName = "";
-        IAssetFactory factory = new ResourcesAssetFactory();
+        IAssetFactory factory = FactoryManager.assetFactory;
         GameObject weaponGO;
         switch (weaponType)
         {
