@@ -4,6 +4,7 @@
     protected float mCritRate; // 暴击率 数值为 0-1的值
     protected int mCurrentHP;
     protected string mIconSprite; // string类型是因为只要接收精灵的名称
+    protected string mPrefabName; // 用于实例化的预制体的名称
 
     protected int mLv;
     protected int mMaxHP;
@@ -12,8 +13,14 @@
     protected int mDmgDescValue;
 
     public int currentHP => mCurrentHP;
-    public ICharacterAttr(IAttrStrategy strategy)
+    public ICharacterAttr(IAttrStrategy strategy, string name, int maxHP, float moveSpeed, string iconSprite, string prefabName)
     {
+        mName = name;
+        mMaxHP = maxHP;
+        mMoveSpeed = moveSpeed;
+        mIconSprite = iconSprite;
+        mPrefabName = prefabName;
+        
         mAttrStrategy = strategy;
         mDmgDescValue = mAttrStrategy.GetDmgDescValue(mLv);
         mCurrentHP = mMaxHP + mAttrStrategy.GetExtraHPValue(mLv);

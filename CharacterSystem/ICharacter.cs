@@ -33,6 +33,11 @@ public abstract class ICharacter
     }
 
     public float AtkRange => mWeapon.AtkRange;
+    public ICharacterAttr attr
+    {
+        set => mAttr = value;
+    }
+
     public abstract void UpdateFSMAI(List<ICharacter> targets);
     public void Update()
     {
