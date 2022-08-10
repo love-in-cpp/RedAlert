@@ -1,5 +1,12 @@
 ﻿using UnityEngine;
 
+public enum WeaponType
+{
+    Gun,
+    Rifle,
+    Rocket
+}
+
 public abstract class IWeapon
 {
     protected int mAtk;
