@@ -13,14 +13,14 @@
     protected int mDmgDescValue;
 
     public int currentHP => mCurrentHP;
-    public ICharacterAttr(IAttrStrategy strategy, string name, int maxHP, float moveSpeed, string iconSprite, string prefabName)
+    public ICharacterAttr(IAttrStrategy strategy, int lv, string name, int maxHP, float moveSpeed, string iconSprite, string prefabName)
     {
         mName = name;
         mMaxHP = maxHP;
         mMoveSpeed = moveSpeed;
         mIconSprite = iconSprite;
         mPrefabName = prefabName;
-        
+        mLv = lv;
         mAttrStrategy = strategy;
         mDmgDescValue = mAttrStrategy.GetDmgDescValue(mLv);
         mCurrentHP = mMaxHP + mAttrStrategy.GetExtraHPValue(mLv);
