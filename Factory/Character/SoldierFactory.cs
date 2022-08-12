@@ -46,7 +46,7 @@ public class SoldierFactory:ICharacterFactory
         }
 
         ICharacterAttr attr =
-            new SoilderAttr(new SoilderAttrStrategy(), name, maxHP, moveSpeed, iconSprite, prefabName);
+            new SoilderAttr(new SoilderAttrStrategy(), lv, name, maxHP, moveSpeed, iconSprite, prefabName);
         character.attr = attr;
         
         // 创建角色游戏物体
