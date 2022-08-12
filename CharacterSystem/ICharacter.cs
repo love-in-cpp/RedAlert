@@ -85,14 +85,15 @@ public abstract class ICharacter
     }
     protected void DoPlayEffect(string effectName)
     {
-        // 加载特效 Todo
-        GameObject effectGO; // 特效的游戏物体
-        // 控制销毁 协程 Todo
+        // 加载特效
+        GameObject effectGO = FactoryManager.assetFactory.LoadEffect(effectName); // 特效的游戏物体
+        effectGO.transform.position = Position;
+        // 控制销毁 协程 Todo 在特效身上添加腳本
         
     }
     protected void DoPlaySound(string soundName)
     {
-        AudioClip clip = null; // todo
+        AudioClip clip = FactoryManager.assetFactory.LoadAudioClip(soundName);
         mAudio.clip = clip;
         mAudio.Play();
     }

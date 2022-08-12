@@ -50,12 +50,12 @@ public class SoldierFactory:ICharacterFactory
         character.attr = attr;
         
         // 创建角色游戏物体
-        // 1. 加载 // 2. 实例化 todo
+        // 1. 加载 // 2. 实例化 
         GameObject characterGO = FactoryManager.assetFactory.LoadEnemy(prefabName);
         characterGO.transform.position = spawnPosition;
         character.gameObject = characterGO;
         
-        // 添加武器 todo
+        // 添加武器 
         IWeapon weapon = FactoryManager.weaponFactory.CreatWeapon(weaponType);
         character.weapon = weapon;
         
