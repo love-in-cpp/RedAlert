@@ -89,7 +89,8 @@ public abstract class ICharacter
         GameObject effectGO = FactoryManager.assetFactory.LoadEffect(effectName); // 特效的游戏物体
         effectGO.transform.position = Position;
         // 控制销毁 协程 Todo 在特效身上添加腳本
-        
+        effectGO.AddComponent<DestroyForTime>();
+
     }
     protected void DoPlaySound(string soundName)
     {
