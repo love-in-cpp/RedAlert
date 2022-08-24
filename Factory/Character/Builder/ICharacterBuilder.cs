@@ -3,13 +3,17 @@ using UnityEngine;
 
 public abstract class ICharacterBuilder
 {
+    protected ICharacter mCharacter;
     protected Type mT;
     protected WeaponType mWeaponType;
     protected Vector3 mSapawnPosition;
     protected int mLv;
+    
+    protected string mPrefabName = "";
 
-    public ICharacterBuilder(Type t, WeaponType weaponType, Vector3 sapawnPosition, int lv)
+    public ICharacterBuilder(ICharacter character, Type t, WeaponType weaponType, Vector3 sapawnPosition, int lv)
     {
+        mCharacter = character;
         mT = t;
         mWeaponType = weaponType;
         mSapawnPosition = sapawnPosition;
@@ -20,4 +24,6 @@ public abstract class ICharacterBuilder
     public abstract void AddCharacterAttr();
     public abstract void AddGameObject();
     public abstract void AddWeapon();
+
+    public abstract ICharacter GetResult();
 }
