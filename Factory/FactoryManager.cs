@@ -4,6 +4,7 @@
     private static ICharacterFactory mSoldierFactory = null;
     private static ICharacterFactory mEnemyFactory = null;
     private static IWeaponFactory mWeaponFactory = null;
+    private static IAttrFactory mAttrFactory = null;
 
     public static IAssetFactory assetFactory
     {
@@ -31,4 +32,5 @@
     }
     public static ICharacterFactory enemyFactory => mEnemyFactory ?? (mEnemyFactory = new EnemyFactory());
     public static IWeaponFactory weaponFactory => mWeaponFactory ??= new WeaponFactory();
+    public static IAttrFactory attrFactory => mAttrFactory ??= new AttrFactory();
 }
