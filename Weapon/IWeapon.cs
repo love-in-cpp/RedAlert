@@ -9,9 +9,9 @@ public enum WeaponType
 
 public abstract class IWeapon
 {
-    protected int mAtk;
+    protected WeaponBaseAttr mBaseAttr;
     // protected int mAtkPlusValue;
-    protected float mAtkRange;
+    
     protected AudioSource mAudio;
 
     protected float mEffectDisplayTime;
@@ -23,8 +23,8 @@ public abstract class IWeapon
     protected ICharacter mOwner; // 武器拥有者
     protected ParticleSystem mParticle;
 
-    public float AtkRange => mAtkRange;
-    public int Atk => mAtk;
+    public float AtkRange => mBaseAttr.atkRange;
+    public int Atk => mBaseAttr.atk;
 
     public ICharacter owner
     {
@@ -33,10 +33,9 @@ public abstract class IWeapon
 
     public GameObject gameObject => mGameObject;
 
-    public IWeapon(int atk, float atkRange, GameObject gameObject)
+    public IWeapon(WeaponBaseAttr baseAttr, GameObject gameObject)
     {
-        mAtk = atk;
-        mAtkRange = atkRange;
+        mBaseAttr = baseAttr;
         mGameObject = gameObject;
 
         Transform effect = mGameObject.transform.Find("Effect");

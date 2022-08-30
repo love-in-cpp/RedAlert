@@ -6,27 +6,11 @@ public class WeaponFactory:IWeaponFactory
     public IWeapon CreatWeapon(WeaponType weaponType)
     {
         IWeapon weapon = null;
-        string assetName = "";
         IAssetFactory factory = FactoryManager.assetFactory;
-        GameObject weaponGO;
-        switch (weaponType)
-        {
-            case WeaponType.Gun:
-                assetName = "WeaponGun";
-                weaponGO = factory.LoadWeapon(assetName);
-                weapon = new WeaponGun(20, 5, weaponGO);
-                break;
-            case WeaponType.Rifle:
-                assetName = "WeaponRifle";
-                weaponGO = factory.LoadWeapon(assetName);
-                weapon = new WeaponGun(30, 7, weaponGO);
-                break;
-            case WeaponType.Rocket:
-                assetName = "WeaponRocket";
-                weaponGO = factory.LoadWeapon(assetName);
-                weapon = new WeaponGun(40, 8, weaponGO);
-                break;
-        }
+        WeaponBaseAttr baseAttr = FactoryManager.attrFactory.GetWeaponBaseAttr(weaponType);
+        GameObject weaponGO = FactoryManager.assetFactory.LoadWeapon(baseAttr.assetName);
+        
+        weapon = new WeaponGun(baseAttr, weaponGO);
 
         return weapon;
 
