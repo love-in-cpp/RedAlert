@@ -4,7 +4,8 @@ public enum WeaponType
 {
     Gun,
     Rifle,
-    Rocket
+    Rocket,
+    MAX,
 }
 
 public abstract class IWeapon
