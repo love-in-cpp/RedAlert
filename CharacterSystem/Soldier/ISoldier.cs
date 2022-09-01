@@ -6,6 +6,7 @@ public enum SoldierType
     Rookie,
     Sergeant,
     Captain,
+    
 }
 public abstract class ISoldier : ICharacter
 {
