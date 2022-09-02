@@ -1,4 +1,5 @@
 ﻿
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using Image = UnityEngine.UI.Image;
@@ -16,6 +17,8 @@ public class CampInfoUI : IBaseUI
     private Text mAliveCount;
     private Text mTrainingCount;
     private Text mTrainTime;
+
+    private ICamp mCamp;
     
     public override void Init()
     {
@@ -49,7 +52,32 @@ public class CampInfoUI : IBaseUI
 
     public void ShowCampInfo(ICamp camp)
     {
+        mCamp = camp; // 用做和被点击的camp进行交互
+        
+        mCampIcon.sprite = FactoryManager.assetFactory.LoadSprite(camp.iconSprite);
+        mCampName.text = camp.name;
+        mCampLevel.text = camp.lv.ToString();
+        ShowWeaponLevel(camp.weaponType);
         Show();
     }
-    
+
+    private void ShowWeaponLevel(WeaponType campWeaponType)
+    {
+        switch (campWeaponType)
+        {
+            case WeaponType.Gun:
+                mWeaponLevel.text = "短枪";
+                break;
+            case WeaponType.Rifle:
+                mWeaponLevel.text = "长枪";
+                break;
+            case WeaponType.Rocket:
+                mWeaponLevel.text = "火箭";
+                break;
+            case WeaponType.MAX:
+                break;
+            default:
+                throw new ArgumentOutOfRangeException(nameof(campWeaponType), campWeaponType, null);
+        }
+    }
 }

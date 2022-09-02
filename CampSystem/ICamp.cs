@@ -24,4 +24,8 @@ public abstract class ICamp
         
     }
 
+    public string name => mName;
+    public string iconSprite => mIconSprite;
+    public abstract int lv { get; }
+    public abstract WeaponType weaponType { get; }
 }

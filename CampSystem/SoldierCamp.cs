@@ -13,5 +13,14 @@ public class SoldierCamp:ICamp
         mLv = lv;
         mWeaponType = weaponType;
     }
-    
+
+    public override int lv
+    {
+        get { return mLv; }
+    }
+
+    public override WeaponType weaponType
+    {
+        get { return mWeaponType; }
+    }
 }
