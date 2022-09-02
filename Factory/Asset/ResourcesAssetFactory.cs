@@ -30,12 +30,14 @@ public class ResourcesAssetFactory:IAssetFactory
 
     public AudioClip LoadAudioClip(string name)
     {
-        return LoadAsset(AudioPath + name) as AudioClip;
+        // return LoadAsset(AudioPath + name) as AudioClip;
+        return Resources.Load(AudioPath + name, typeof(AudioClip)) as AudioClip;
     }
 
     public Sprite LoadSprite(string name)
     {
-        return LoadAsset(SpritePath + name) as Sprite;
+        // return LoadAsset(SpritePath + name) as Sprite;
+        return Resources.Load(SpritePath + name, typeof(Sprite)) as Sprite;
     }
 
     private GameObject InstantiateGameObject(string path)
