@@ -19,7 +19,13 @@ public static class UnityTool
                 target = transform;
             }
         }
-        return target is null ? null : target.gameObject;
+
+        if (target is null)
+        {
+            Debug.LogError("在游戏物体"+parent+"下查找不到"+childName);
+            return null;
+        }
+        return target.gameObject;
     }
 
     public static void Attach(GameObject parent, GameObject child)
