@@ -18,4 +18,14 @@ public abstract class IBaseUI
     {
         
     }
+
+    protected void Show()
+    {
+        mRootUI.SetActive(true);
+    }
+
+    protected void Hide()
+    {
+        mRootUI.SetActive(false);
+    }
 }

@@ -16,7 +16,9 @@ public class GamePauseUI : IBaseUI
         
         mCurrentStageLv = UITool.FindChild<Text>(mRootUI, "CurrentStageLv");
         mContinueBtn = UITool.FindChild<Button>(mRootUI, "ContinueBtn");
-        mBackMenuBtn = UITool.FindChild<Button>(mRootUI, "BackMenuBtn");
+        mBackMenuBtn = UITool.FindChild<Button>(mRootUI, "BackBtn");
+        
+        Hide();
     }
 
     public override void Update()

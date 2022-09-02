@@ -35,6 +35,8 @@ public class CampInfoUI : IBaseUI
         mTrainingCount = UITool.FindChild<Text>(mRootUI, "TrainingCount");
         mTrainTime = UITool.FindChild<Text>(mRootUI, "TrainTime");
         
+        Hide();
+        
     }
 
     public override void Update()

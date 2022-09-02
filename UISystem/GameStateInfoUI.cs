@@ -38,7 +38,8 @@ public class GameStateInfoUI : IBaseUI
         mMessage = UITool.FindChild<Text>(mRootUI, "Message");
         mEnergySlider = UITool.FindChild<Slider>(mRootUI, "EnergySlider");
         mEnergyText = UITool.FindChild<Text>(mRootUI, "EnergyText");
-
+        
+        mGameOverUI.SetActive(false);
         mMessage.text = "";
     }
 
