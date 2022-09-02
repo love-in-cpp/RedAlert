@@ -46,4 +46,10 @@ public class CampInfoUI : IBaseUI
     public override void Release()
     {
     }
+
+    public void ShowCampInfo(ICamp camp)
+    {
+        Show();
+    }
+    
 }

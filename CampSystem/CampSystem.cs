@@ -64,6 +64,10 @@ public class CampSystem : IGameSystem
         gameObject = GameObject.Find(gameObjectName);
         position = UnityTool.FindChild(gameObject, "TrainPoint").transform.position;
         SoldierCamp camp = new SoldierCamp(gameObject, name, icon, soldierType, position, trainTime);
+
+        CampOnClick campOnClick = gameObject.AddComponent<CampOnClick>(); //todo 继承自Monobehaviour的脚本组件，挂载在游戏物体上后，会返回这个脚本组件的实例化对象。
+        campOnClick.camp = camp;
+        
         mSoldierCamps.Add(soldierType,camp);
     }
 }

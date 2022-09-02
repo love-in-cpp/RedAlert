@@ -88,5 +88,10 @@ public class GameFacade
         mGameStateInfoUI.Release();
         mSoldierInfoUI.Release();
     }
+
+    public void ShowCampInfo(ICamp camp)
+    {
+      mCampInfoUI.ShowCampInfo(camp);
+    }
     
 }
