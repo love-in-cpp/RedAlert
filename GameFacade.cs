@@ -109,4 +109,9 @@ public class GameFacade
         return mEnergySystem.TakeEnergy(value);
     }
 
+    public void ShowMsg(string msg)
+    {
+        mGameStateInfoUI.ShowMsg(msg);
+    }
+
 }

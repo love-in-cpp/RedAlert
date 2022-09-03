@@ -14,7 +14,9 @@ public class GameStateInfoUI : IBaseUI
     private Text mMessage;
     private Slider mEnergySlider;
     private Text mEnergyText;
-    
+
+    private float mMagTimer = 0;
+    private int mMsgTime = 2;
     public override void Init()
     {
         base.Init();
@@ -45,9 +47,26 @@ public class GameStateInfoUI : IBaseUI
 
     public override void Update()
     {
+        base.Update();
+        if (mMagTimer > 0)
+        {
+            mMagTimer -= Time.deltaTime;
+        }
+        else
+        {
+            mMessage.text = "";
+        }
+        
     }
 
     public override void Release()
     {
+        
+    }
+
+    public void ShowMsg(string msg)
+    {
+        mMessage.text = msg;
+        mMagTimer = mMsgTime;
     }
 }
