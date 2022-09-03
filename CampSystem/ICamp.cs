@@ -62,4 +62,9 @@ public abstract class ICamp
             }
         }
     }
+
+    public int trainCount => mCommands.Count;
+
+    public float remainingTrainTime => mTrainTimer;
+
 }

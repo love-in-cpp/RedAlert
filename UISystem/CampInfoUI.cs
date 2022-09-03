@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.Globalization;
 using UnityEngine;
 using UnityEngine.UI;
 using Image = UnityEngine.UI.Image;
@@ -46,6 +47,12 @@ public class CampInfoUI : IBaseUI
 
     public override void Update()
     {
+        base.Update();
+        if (mCamp is not null)
+        {
+            ShowTrainingInfo();
+        }
+        
     }
 
     public override void Release()
@@ -60,7 +67,23 @@ public class CampInfoUI : IBaseUI
         mCampName.text = camp.name;
         mCampLevel.text = camp.lv.ToString();
         ShowWeaponLevel(camp.weaponType);
+        
+        ShowTrainingInfo();
         Show();
+    }
+
+    private void ShowTrainingInfo()
+    {
+        mTrainTime.text = mCamp.remainingTrainTime.ToString(CultureInfo.CurrentCulture);
+        mTrainingCount.text = mCamp.trainCount.ToString();
+        if (mCamp.trainCount <= 0)
+        {
+            mCancelTrainBtn.interactable = false;
+        }
+        else
+        {
+            mCancelTrainBtn.interactable = true;
+        }
     }
 
     private void ShowWeaponLevel(WeaponType campWeaponType)
