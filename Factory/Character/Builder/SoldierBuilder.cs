@@ -31,6 +31,11 @@ public class SoldierBuilder:ICharacterBuilder
         mCharacter.weapon = weapon;
     }
 
+    public override void AddInCharacterSystem()
+    {
+        GameFacade.Instance.AddSoldier(mCharacter as ISoldier);
+    }
+
     public override ICharacter GetResult()
     {
         return mCharacter;

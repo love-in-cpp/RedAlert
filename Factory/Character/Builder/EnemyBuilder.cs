@@ -29,6 +29,11 @@ public class EnemyBuilder:ICharacterBuilder
         mCharacter.weapon = FactoryManager.weaponFactory.CreatWeapon(mWeaponType);
     }
 
+    public override void AddInCharacterSystem()
+    {
+        GameFacade.Instance.AddEnemy(mCharacter as IEnemy);
+    }
+
     public override ICharacter GetResult()
     {
         return mCharacter;
