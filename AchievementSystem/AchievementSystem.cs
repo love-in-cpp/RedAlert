@@ -4,6 +4,7 @@ public class AchievementSystem : IGameSystem
 {
     public override void Init()
     {
+        base.Init();
         
     }
 
