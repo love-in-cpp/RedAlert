@@ -41,6 +41,8 @@ public class CampInfoUI : IBaseUI
         
         mTrainBtn.onClick.AddListener(OnTrainCLick);
         mCancelTrainBtn.onClick.AddListener(OnCancelTrainClick);
+        mCampUpgradeBtn.onClick.AddListener(OnCampUpgradeClick);
+        mWeaponUpgradeBtn.onClick.AddListener(OnWeaponUpgradeClick);
         Hide();
         
     }
@@ -116,5 +118,30 @@ public class CampInfoUI : IBaseUI
     {
         // 回收能量 todo
         mCamp.CancelTrainCommand();
+    }
+
+    private void OnCampUpgradeClick()
+    {
+        int energy = mCamp.energyCostCampUpgrade;
+        if (energy < 0)
+        {
+            //todo
+            return;
+        }
+        mCamp.UpgradeCamp();
+        ShowCampInfo(mCamp);
+    }
+
+    private void OnWeaponUpgradeClick()
+    {
+        int energy = mCamp.energyCostWeaponUpgrade;
+        if (energy < 0)
+        {
+            // todo
+            return;
+        }
+        //todo
+        mCamp.UpgradeWeapon();
+        ShowCampInfo(mCamp);
     }
 }
