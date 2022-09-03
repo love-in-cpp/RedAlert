@@ -103,5 +103,10 @@ public class GameFacade
     {
         mCharacterSystem.AddEnemy(enemy);
     }
-    
+
+    public bool TakeEnergy(int value)
+    {
+        return mEnergySystem.TakeEnergy(value);
+    }
+
 }
