@@ -11,6 +11,7 @@ public class AttrFactory:IAttrFactory
     public AttrFactory()
     {
         InitCharacterBaseAttr();
+        InitWeaponBaseAttr();
         
     }
 

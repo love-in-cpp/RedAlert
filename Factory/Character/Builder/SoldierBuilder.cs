@@ -19,7 +19,7 @@ public class SoldierBuilder:ICharacterBuilder
     {
         // 创建角色游戏物体
         // 1. 加载 // 2. 实例化 
-        GameObject characterGO = FactoryManager.assetFactory.LoadEnemy(mPrefabName);
+        GameObject characterGO = FactoryManager.assetFactory.LoadSoldier(mPrefabName);
         characterGO.transform.position = mSapawnPosition;
         mCharacter.gameObject = characterGO;
     }
