@@ -38,6 +38,8 @@ public class CampInfoUI : IBaseUI
         mTrainingCount = UITool.FindChild<Text>(mRootUI, "TrainingCount");
         mTrainTime = UITool.FindChild<Text>(mRootUI, "TrainTime");
         
+        mTrainBtn.onClick.AddListener(OnTrainCLick);
+        mCancelTrainBtn.onClick.AddListener(OnCancelTrainClick);
         Hide();
         
     }
@@ -79,5 +81,17 @@ public class CampInfoUI : IBaseUI
             default:
                 throw new ArgumentOutOfRangeException(nameof(campWeaponType), campWeaponType, null);
         }
+    }
+
+    public void OnTrainCLick()
+    {
+        // todo 能量是否足够 
+        mCamp.Train();
+    }
+
+    public void OnCancelTrainClick()
+    {
+        // 回收能量 todo
+        mCamp.CancelTrainCommand();
     }
 }

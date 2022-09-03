@@ -23,4 +23,11 @@ public class SoldierCamp:ICamp
     {
         get { return mWeaponType; }
     }
+
+    public override void Train()
+    {
+        // 添加训练命令
+        TrainSoldierCommand cmd = new TrainSoldierCommand(mSoldierType, mWeaponType, mPosition, mLv);
+        mCommands.Add(cmd);
+    }
 }

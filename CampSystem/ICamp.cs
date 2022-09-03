@@ -1,4 +1,5 @@
-﻿using Unity.VisualScripting;
+﻿using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public abstract class ICamp
@@ -9,6 +10,8 @@ public abstract class ICamp
     protected SoldierType mSoldierType;
     protected Vector3 mPosition; // 集合点
     protected float mTrainTime;
+
+    protected List<ITrainCommand> mCommands;
     public ICamp(GameObject gameObject, string name, string icon, SoldierType soldierType, Vector3 position, float trainTime)
     {
         mGameObject = gameObject;
@@ -17,6 +20,8 @@ public abstract class ICamp
         mSoldierType = soldierType;
         mPosition = position;
         mTrainTime = trainTime;
+
+        mCommands = new List<ITrainCommand>();
     }
 
     public virtual void Update()
@@ -28,4 +33,14 @@ public abstract class ICamp
     public string iconSprite => mIconSprite;
     public abstract int lv { get; }
     public abstract WeaponType weaponType { get; }
+
+    public abstract void Train();
+
+    public void CancelTrainCommand()
+    {
+        if (mCommands.Count > 0)
+        {
+            mCommands.RemoveAt(mCommands.Count-1);
+        }
+    }
 }
