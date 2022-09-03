@@ -13,6 +13,12 @@ public abstract class ICamp
 
     protected List<ITrainCommand> mCommands;
     private float mTrainTimer = 0;
+
+    protected IEnergyCostStragy energyCostStragy;
+    protected int mEnergyCostCampUpgrade;
+    protected int mEnergyCostWeaponUpgrade;
+    protected int mEnergyCostTrain;
+    
     public ICamp(GameObject gameObject, string name, string icon, SoldierType soldierType, Vector3 position, float trainTime)
     {
         mGameObject = gameObject;
@@ -47,8 +53,14 @@ public abstract class ICamp
     public string iconSprite => mIconSprite;
     public abstract int lv { get; }
     public abstract WeaponType weaponType { get; }
+    public abstract int energyCostCampUpgrade { get; }
+    public abstract int energyCostWeaponUpgrade { get; }
+    public abstract int energyCostTrain { get; }
 
+    protected abstract void UpdateEnergyCost();
     public abstract void Train();
+    public abstract void UpgradeCamp();
+    public abstract void UpgradeWeapon();
 
     public void CancelTrainCommand()
     {
