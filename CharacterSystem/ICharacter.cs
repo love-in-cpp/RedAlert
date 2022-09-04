@@ -11,6 +11,10 @@ public abstract class ICharacter
     protected NavMeshAgent mNavAgent;
 
     protected IWeapon mWeapon;
+    protected bool mIsKilled = false;
+    protected bool mCanDestroy = false;
+    protected float mDestroyTimer = 2f;
+    
     
     public Vector3 Position
     {
@@ -31,6 +35,8 @@ public abstract class ICharacter
     {
         set => mAttr = value;
     }
+
+    public bool canDestroy => mCanDestroy;
 
     public GameObject gameObject
     {
@@ -59,6 +65,15 @@ public abstract class ICharacter
     public abstract void UpdateFSMAI(List<ICharacter> targets);
     public void Update()
     {
+        if (mIsKilled)
+        {
+            mDestroyTimer -= Time.deltaTime;
+            if (mDestroyTimer <= 0)
+            {
+                mCanDestroy = true;
+            }
+        }
+        
         mWeapon.Update();
     }
     public void Attack(ICharacter target)
@@ -81,7 +96,13 @@ public abstract class ICharacter
 
     public void Killed()
     {
-         // Todo
+        mIsKilled = true;
+        mNavAgent.isStopped = true;
+    }
+
+    public void Release()
+    {
+        Object.Destroy(mGameObject);
     }
     protected void DoPlayEffect(string effectName)
     {

@@ -36,6 +36,25 @@ public class CharacterSystem : IGameSystem
     {
         UpdateEnemy();
         UpdateSoldier();
+        RemoveCharacterIsKilled(mEnemys);
+        RemoveCharacterIsKilled(mSoldiers);
+    }
+
+    private void RemoveCharacterIsKilled(List<ICharacter> characters)
+    {
+        List<ICharacter> canDestroys = new List<ICharacter>();
+        foreach (var character in characters)
+        {
+            if (character.canDestroy)
+            {
+                canDestroys.Add(character);
+            }
+        }
+        foreach (var character in canDestroys)
+        {
+            character.Release();
+            characters.Remove(character);
+        }
     }
 
     private void UpdateEnemy()
