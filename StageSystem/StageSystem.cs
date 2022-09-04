@@ -14,4 +14,15 @@ public class StageSystem : IGameSystem
     public override void Release()
     {
     }
+
+    public int GetCountOfEnemyKilled()
+    {
+        // TODO
+        return 0;
+    }
+
+    public void EnterNextStage()
+    {
+        // todo
+    }
 }
