@@ -7,7 +7,7 @@ public class EnemyFactory:ICharacterFactory
     {
         ICharacter character = new T();
         
-        ICharacterBuilder builder = new SoldierBuilder(character, typeof(T), weaponType, spawnPosition, lv);
+        ICharacterBuilder builder = new EnemyBuilder(character, typeof(T), weaponType, spawnPosition, lv);
         return CharacterBuilderDirector.Construct(builder);
     }
 }

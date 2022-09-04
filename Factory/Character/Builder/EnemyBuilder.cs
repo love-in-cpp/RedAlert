@@ -12,6 +12,7 @@ public class EnemyBuilder:ICharacterBuilder
     public override void AddCharacterAttr()
     {
         CharacterBaseAttr baseAttr = FactoryManager.attrFactory.GetCharacterBaseAttr(mT);
+        mPrefabName = baseAttr.prefabName;
         ICharacterAttr attr = 
             new EnemyAttr(new EnemyAttrStategy(), mLv, baseAttr);
         mCharacter.attr = attr;
