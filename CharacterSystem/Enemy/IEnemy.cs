@@ -43,6 +43,10 @@ public abstract class IEnemy : ICharacter
     {
         base.UnderAttack(damage);
         PlayEffect();
+        if (mAttr.currentHP <= 0)
+        {
+            Killed();
+        }
     }
 
     protected abstract void PlayEffect();
