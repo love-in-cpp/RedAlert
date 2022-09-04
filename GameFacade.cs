@@ -31,7 +31,7 @@ public class GameFacade
 
     public Vector3 GetEnemyTargetPosition()
     {
-        return Vector3.zero;
+        return mStageSystem.targetPosition;
     }
     public void Init()
     {
