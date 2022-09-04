@@ -52,6 +52,7 @@ public class GameFacade
         mCharacterSystem.Init();
         mGameEventSystem.Init();
         mStageSystem.Init();
+        mEnergySystem.Init();
 
         mCampInfoUI.Init();
         mGamePauseUI.Init();
@@ -109,9 +110,19 @@ public class GameFacade
         return mEnergySystem.TakeEnergy(value);
     }
 
+    public void RecycleEnergy(int value)
+    {
+        mEnergySystem.Recycle(value);
+    }
+
     public void ShowMsg(string msg)
     {
         mGameStateInfoUI.ShowMsg(msg);
+    }
+
+    public void UpdateEnergySlider(int nowEnergy, int maxEnergy)
+    {
+        mGameStateInfoUI.UpdateEnergySlider(nowEnergy,maxEnergy);
     }
 
 }
