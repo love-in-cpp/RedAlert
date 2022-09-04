@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class EnergySystem : IGameSystem
 {
-    private const float MAX_Energy = 100;
+    private const int MAX_Energy = 100;
     private float mNowEnergy = MAX_Energy;
 
     private float mRecoverSpeed = 3;
@@ -15,6 +15,7 @@ public class EnergySystem : IGameSystem
     public override void Update()
     {
         base.Update();
+        mGameFacade.UpdateEnergySlider((int)mNowEnergy,MAX_Energy);
         if (mNowEnergy >= MAX_Energy)
         {
             return; 
@@ -26,6 +27,7 @@ public class EnergySystem : IGameSystem
         //     mNowEnergy = MAX_Energy;
         // }
         mNowEnergy = Mathf.Min(mNowEnergy, MAX_Energy);
+        
     }
 
     public override void Release()
@@ -43,5 +45,11 @@ public class EnergySystem : IGameSystem
         {
             return false;
         }
+    }
+
+    public void Recycle(int value)
+    {
+        mNowEnergy += value;
+        mNowEnergy = Mathf.Min(mNowEnergy, MAX_Energy);
     }
 }

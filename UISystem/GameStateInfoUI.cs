@@ -69,4 +69,10 @@ public class GameStateInfoUI : IBaseUI
         mMessage.text = msg;
         mMagTimer = mMsgTime;
     }
+
+    public void UpdateEnergySlider(int nowEnergy, int maxEnergy)
+    {
+        mEnergySlider.value = (float)nowEnergy / maxEnergy;
+        mEnergyText.text = "(" + nowEnergy + "/" + maxEnergy + ")";
+    }
 }
