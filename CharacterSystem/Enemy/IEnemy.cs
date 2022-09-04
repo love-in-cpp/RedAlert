@@ -1,6 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;using System.Collections.Generic;
 using UnityEngine;
 
+public enum EnemyType
+{
+    Elf,
+    Ogre,
+    Troll,
+}
 public abstract class IEnemy : ICharacter
 {
     protected EnemyFSMSystem mFSMSystem;
