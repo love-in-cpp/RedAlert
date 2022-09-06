@@ -14,7 +14,7 @@ public abstract class IGameEventSubject
         mObservers.Remove(ob);
     }
 
-    public void Notify()
+    public virtual void Notify()
     {
         foreach (var ob in mObservers)
         {
