@@ -104,6 +104,7 @@ public class StageSystem : IGameSystem
     {
         // todo
         mLv++;
+        mGameFacade.NotifySubject(GameEventType.NewStage);
     }
 
     public Vector3 targetPosition => mTargetPosition;

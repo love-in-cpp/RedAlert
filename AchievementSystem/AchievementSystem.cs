@@ -29,6 +29,8 @@ public class AchievementSystem : IGameSystem
     {
         base.Init();
         mGameFacade.RegisterObserver(GameEventType.EnemyKilled, new EnemyKilledObserverAchievement(this));
+        mGameFacade.RegisterObserver(GameEventType.SoldierKilled, new SoldierKilledObserverAchievement(this));
+        mGameFacade.RegisterObserver(GameEventType.NewStage, new NewStageObserverAchievement(this));
     }
 
     public override void Update()

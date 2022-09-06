@@ -57,8 +57,14 @@ public abstract class ISoldier : ICharacter
         }
     }
 
+    public override void Killed()
+    {
+        base.Killed();
+        GameFacade.Instance.NotifySubject(GameEventType.SoldierKilled);
+    }
+
     protected abstract void PlaySound();
     protected abstract void PlayEffect();
 
-    
+
 }
