@@ -125,4 +125,19 @@ public class GameFacade
         mGameStateInfoUI.UpdateEnergySlider(nowEnergy,maxEnergy);
     }
 
+    public void RegisterObserver(GameEventType eventType, IGameEventObserver observer)
+    {
+        mGameEventSystem.RegisterObserver(eventType,observer);
+    }
+
+    public void RemoveObserver(GameEventType eventType, IGameEventObserver observer)
+    {
+        mGameEventSystem.RemoveObserver(eventType, observer);
+    }
+
+    public void NotifySubject(GameEventType eventType)
+    {
+        mGameEventSystem.NotifySubject(eventType);
+    }
+
 }
