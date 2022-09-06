@@ -67,17 +67,17 @@ public class StageSystem : IGameSystem
         NormalStageHandler handler3 =
             new NormalStageHandler(this, lv++, 9, EnemyType.Elf, WeaponType.Rocket, 3, GetRandomPosition());
         NormalStageHandler handler4 =
-            new NormalStageHandler(this, lv++, 14, EnemyType.Ogre, WeaponType.Gun, 4, GetRandomPosition());
+            new NormalStageHandler(this, lv++, 13, EnemyType.Ogre, WeaponType.Gun, 4, GetRandomPosition());
         NormalStageHandler handler5 =
-            new NormalStageHandler(this, lv++, 18, EnemyType.Ogre, WeaponType.Rifle, 4, GetRandomPosition());
+            new NormalStageHandler(this, lv++, 17, EnemyType.Ogre, WeaponType.Rifle, 4, GetRandomPosition());
         NormalStageHandler handler6 =
-            new NormalStageHandler(this, lv++, 22, EnemyType.Ogre, WeaponType.Rocket, 4, GetRandomPosition());
+            new NormalStageHandler(this, lv++, 21, EnemyType.Ogre, WeaponType.Rocket, 4, GetRandomPosition());
         NormalStageHandler handler7 =
-            new NormalStageHandler(this, lv++, 27, EnemyType.Troll, WeaponType.Gun, 5, GetRandomPosition());
+            new NormalStageHandler(this, lv++, 26, EnemyType.Troll, WeaponType.Gun, 5, GetRandomPosition());
         NormalStageHandler handler8 =
-            new NormalStageHandler(this, lv++, 32, EnemyType.Troll, WeaponType.Rifle, 5, GetRandomPosition());
+            new NormalStageHandler(this, lv++, 31, EnemyType.Troll, WeaponType.Rifle, 5, GetRandomPosition());
         NormalStageHandler handler9 =
-            new NormalStageHandler(this, lv++, 37, EnemyType.Troll, WeaponType.Rocket, 5, GetRandomPosition());
+            new NormalStageHandler(this, lv++, 36, EnemyType.Troll, WeaponType.Rocket, 5, GetRandomPosition());
 
         handler1.SetNextHandler(handler2)
             .SetNextHandler(handler3)
@@ -91,8 +91,7 @@ public class StageSystem : IGameSystem
     }
     public int GetCountOfEnemyKilled()
     {
-        // TODO
-        return 0;
+        return mCountOfEnemyKilled;
     }
 
     public int countOfEnemyKilled

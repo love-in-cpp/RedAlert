@@ -47,6 +47,7 @@ public abstract class ISoldier : ICharacter
 
     public override void UnderAttack(int damage)
     {
+        if(mIsKilled) return;
         base.UnderAttack(damage);
         if (mAttr.currentHP <= 0)
         {

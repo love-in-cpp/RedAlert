@@ -41,6 +41,7 @@ public abstract class IEnemy : ICharacter
 
     public override void UnderAttack(int damage)
     {
+        if (mIsKilled) return;
         base.UnderAttack(damage);
         PlayEffect();
         if (mAttr.currentHP <= 0)

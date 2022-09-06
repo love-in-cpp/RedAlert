@@ -37,7 +37,7 @@ public abstract class IStageHandler
     {
         if (mStageSystem.GetCountOfEnemyKilled() >= mCountToFinished)
         {
-            
+            mStageSystem.EnterNextStage();
         }
     }
 
