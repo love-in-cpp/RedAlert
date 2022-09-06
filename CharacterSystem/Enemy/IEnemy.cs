@@ -50,6 +50,9 @@ public abstract class IEnemy : ICharacter
     }
 
     protected abstract void PlayEffect();
-
-    
+    public override void Killed()
+    {
+        base.Killed();
+        GameFacade.Instance.NotifySubject(GameEventType.EnemyKilled);
+    }
 }

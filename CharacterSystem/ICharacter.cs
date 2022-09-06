@@ -94,7 +94,7 @@ public abstract class ICharacter
         
     }
 
-    public void Killed()
+    public virtual void Killed()
     {
         mIsKilled = true;
         mNavAgent.isStopped = true;
