@@ -9,11 +9,13 @@ public class StageSystem : IGameSystem
     private List<Vector3> mPosList;
     private IStageHandler mRootHandler;
     private Vector3 mTargetPosition;
+    private int mCountOfEnemyKilled = 0;
     public override void Init()
     {
         base.Init();
         InitPosition();
         InitStageChain();
+        mGameFacade.RegisterObserver(GameEventType.EnemyKilled, new EnemyKilledObserverStageSystem(this));
     }
 
     private void InitPosition()
@@ -93,6 +95,12 @@ public class StageSystem : IGameSystem
         return 0;
     }
 
+    public int countOfEnemyKilled
+    {
+        set => mCountOfEnemyKilled = value;
+        
+    }
+    
     public void EnterNextStage()
     {
         // todo
