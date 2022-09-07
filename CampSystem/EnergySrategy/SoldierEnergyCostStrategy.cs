@@ -65,6 +65,8 @@ public class SoldierEnergyCostStrategy:IEnergyCostStragy
             case SoldierType.Captain:
                 energy = 20;
                 break;
+            case SoldierType.Captive:
+                return 10;
             default:
                 throw new ArgumentOutOfRangeException(nameof(st), st, null);
         }
