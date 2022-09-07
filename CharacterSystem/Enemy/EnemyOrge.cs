@@ -1,6 +1,6 @@
 ﻿public class EnemyOrge : IEnemy
 {
-    protected override void PlayEffect()
+    public override void PlayEffect()
     {
         DoPlayEffect("OgreHitEffect");
     }
