@@ -78,4 +78,18 @@ public class CharacterSystem : IGameSystem
     public override void Release()
     {
     }
+
+    public void RunVisitor(ICharacterVisitor visitor)
+    {
+        foreach (var character in mEnemys)
+        {
+            character.RunVisitor(visitor);
+        }
+
+        foreach (var character in mSoldiers)
+        {
+            character.RunVisitor(visitor);
+        }
+    }
+    
 }

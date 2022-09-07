@@ -155,6 +155,11 @@ public class GameFacade
     {
         mAchievementSystem.CreateMemento().SaveData();
     }
+
+    public void RunVisitor(ICharacterVisitor visitor)
+    {
+        mCharacterSystem.RunVisitor(visitor);
+    }
     
     
 }

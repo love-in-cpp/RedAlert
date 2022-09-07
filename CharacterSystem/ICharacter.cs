@@ -37,6 +37,7 @@ public abstract class ICharacter
     }
 
     public bool canDestroy => mCanDestroy;
+    public bool isKilled => mIsKilled;
 
     public GameObject gameObject
     {
@@ -63,6 +64,7 @@ public abstract class ICharacter
     }
 
     public abstract void UpdateFSMAI(List<ICharacter> targets);
+    public abstract void RunVisitor(ICharacterVisitor visitor);
     public void Update()
     {
         if (mIsKilled)

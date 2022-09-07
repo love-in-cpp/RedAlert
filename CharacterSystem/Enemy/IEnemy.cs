@@ -56,4 +56,9 @@ public abstract class IEnemy : ICharacter
         base.Killed();
         GameFacade.Instance.NotifySubject(GameEventType.EnemyKilled);
     }
+
+    public override void RunVisitor(ICharacterVisitor visitor)
+    {
+        visitor.VisitEnemy(this);
+    }
 }
