@@ -92,32 +92,33 @@ class Chessman
         X = memento.X;
         Y = memento.Y;
     }
-}
-
-internal class ChessmanMemento
-{
-    public string Name { get; set; }
-
-    public ChessmanMemento(string name, int x, int y)
+    internal class ChessmanMemento
     {
-        Name = name;
-        X = x;
-        Y = y;
+        public string Name { get; set; }
+
+        public ChessmanMemento(string name, int x, int y)
+        {
+            Name = name;
+            X = x;
+            Y = y;
+        }
+        public int X { get; set; }
+        public int Y { get; set; }
     }
-    public int X { get; set; }
-    public int Y { get; set; }
 }
+
+
 
 public class ChessmanCaretaker
 {
-    private List<ChessmanMemento> _memento;
+    private List<Chessman.ChessmanMemento> _memento;
 
     public ChessmanCaretaker()
     {
-        _memento = new List<ChessmanMemento>();
+        _memento = new List<Chessman.ChessmanMemento>();
     }
     
-    internal ChessmanMemento Get(int index)
+    internal Chessman.ChessmanMemento Get(int index)
     {
         if (index > 0 && index < _memento.Count)
         {
@@ -127,7 +128,7 @@ public class ChessmanCaretaker
         return null;
     }
 
-    internal void Set(ChessmanMemento memento)
+    internal void Set(Chessman.ChessmanMemento memento)
     {
         _memento.Add(memento);
     }
