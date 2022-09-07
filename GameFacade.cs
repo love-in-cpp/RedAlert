@@ -58,6 +58,8 @@ public class GameFacade
         mGamePauseUI.Init();
         mGameStateInfoUI.Init();
         mSoldierInfoUI.Init();
+        
+        LoadMemento();
     }
 
     public void Update()
@@ -88,6 +90,8 @@ public class GameFacade
         mGamePauseUI.Release();
         mGameStateInfoUI.Release();
         mSoldierInfoUI.Release();
+        
+        CreatMemento();
     }
 
     public void ShowCampInfo(ICamp camp)
@@ -140,4 +144,17 @@ public class GameFacade
         mGameEventSystem.NotifySubject(eventType);
     }
 
+    private void LoadMemento()
+    {
+        AchievenmentMemento memento = new AchievenmentMemento();
+        memento.LoadData();
+        mAchievementSystem.SetMemento(memento);
+    }
+
+    private void CreatMemento()
+    {
+        mAchievementSystem.CreateMemento().SaveData();
+    }
+    
+    
 }
