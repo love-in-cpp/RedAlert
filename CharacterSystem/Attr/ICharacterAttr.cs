@@ -8,6 +8,8 @@
     protected int mDmgDescValue;
 
     public int currentHP => mCurrentHP;
+    public IAttrStrategy strategy => mAttrStrategy;
+    public CharacterBaseAttr baseAttr => mBaseAttr;
     public ICharacterAttr(IAttrStrategy strategy, int lv, CharacterBaseAttr baseAttr)
     {
         mBaseAttr = baseAttr;

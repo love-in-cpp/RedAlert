@@ -33,6 +33,7 @@ public abstract class ICharacter
     public float AtkRange => mWeapon.AtkRange;
     public ICharacterAttr attr
     {
+        get => mAttr;
         set => mAttr = value;
     }
 
@@ -41,6 +42,7 @@ public abstract class ICharacter
 
     public GameObject gameObject
     {
+        get => mGameObject;
         set
         {
             mGameObject = value;
@@ -52,6 +54,7 @@ public abstract class ICharacter
 
     public IWeapon weapon
     {
+        get => mWeapon;
         set
         {
             mWeapon = value;
