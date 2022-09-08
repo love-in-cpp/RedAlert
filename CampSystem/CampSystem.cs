@@ -7,12 +7,15 @@ using UnityEngine;
 public class CampSystem : IGameSystem
 {
     private Dictionary<SoldierType, SoldierCamp> mSoldierCamps = new Dictionary<SoldierType, SoldierCamp>();
+
+    private Dictionary<EnemyType, CaptiveCamp> mCaptiveCamps = new Dictionary<EnemyType, CaptiveCamp>();
     public override void Init()
     {
         base.Init();
         InitCamp(SoldierType.Rookie);
         InitCamp(SoldierType.Sergeant);
         InitCamp(SoldierType.Captain);
+        InitCamp(EnemyType.Elf);
     }
 
     public override void Update()
@@ -21,6 +24,11 @@ public class CampSystem : IGameSystem
         foreach (var camp in mSoldierCamps.Values)
         {
             camp.Update();
+        }
+
+        foreach (var value in mCaptiveCamps.Values)
+        {
+            value.Update();
         }
     }
 
@@ -69,5 +77,36 @@ public class CampSystem : IGameSystem
         campOnClick.camp = camp;
         
         mSoldierCamps.Add(soldierType,camp);
+    }
+
+    private void InitCamp(EnemyType enemyType)
+    {
+        GameObject gameObject = null;
+        string gameObjectName = null;
+        string name = null;
+        string icon = null;
+        Vector3 position = Vector3.zero;
+        float trainTime = 0;
+        
+        switch (enemyType)
+        {
+            case EnemyType.Elf:
+                gameObjectName = "CaptiveCamp_Elf";
+                name = "俘兵营";
+                icon = "CaptiveCamp";
+                trainTime = 3;
+                break;
+            default:
+                Debug.LogError("无法根据敌人类型"+enemyType+"初始化兵营");
+                break;
+        }
+        gameObject = GameObject.Find(gameObjectName);
+        position = UnityTool.FindChild(gameObject, "TrainPoint").transform.position;
+        CaptiveCamp camp = new CaptiveCamp(gameObject, name, icon, enemyType, position, trainTime);
+
+        CampOnClick campOnClick = gameObject.AddComponent<CampOnClick>(); //todo 继承自Monobehaviour的脚本组件，挂载在游戏物体上后，会返回这个脚本组件的实例化对象。
+        campOnClick.camp = camp;
+        
+        mCaptiveCamps.Add(enemyType,camp);   
     }
 }
