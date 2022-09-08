@@ -2,12 +2,13 @@
 
 public class ResourcesAssetFactory:IAssetFactory
 {
-    private const string SoldierPath = "Characters/Soldier/";
-    private const string EnemyPath = "Characters/Enemy/";
-    private const string WeaponPath = "Weapons/";
-    private const string EffectPath = "Effects/";
-    private const string AudioPath = "Audios/";
-    private const string SpritePath = "Sprites/";
+    public const string SoldierPath = "Characters/Soldier/";
+    public const string EnemyPath = "Characters/Enemy/";
+    public const string WeaponPath = "Weapons/";
+    public const string EffectPath = "Effects/";
+    public const string AudioPath = "Audios/";
+    public const string SpritePath = "Sprites/";
+    
     public GameObject LoadSoldier(string name)
     {
         return InstantiateGameObject(SoldierPath + name);
@@ -51,7 +52,7 @@ public class ResourcesAssetFactory:IAssetFactory
         return GameObject.Instantiate(o) as GameObject;
     }
 
-    private Object LoadAsset(string path)
+    public Object LoadAsset(string path)
     {
         Object o =  Resources.Load(path);
         if (o is null)

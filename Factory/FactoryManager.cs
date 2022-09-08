@@ -12,7 +12,8 @@
         {
             if (mAssetFactory is null)
             {
-                mAssetFactory = new ResourcesAssetFactory();
+                // mAssetFactory = new ResourcesAssetFactory();
+                mAssetFactory = new ResourceAssetProxyFactory();
             }
 
             return mAssetFactory;
