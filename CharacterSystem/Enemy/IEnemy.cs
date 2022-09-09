@@ -31,10 +31,10 @@ public abstract class IEnemy : ICharacter
         mFSMSystem = new EnemyFSMSystem();
 
         EnemyChaseState chaseState = new EnemyChaseState(mFSMSystem, this);
-        chaseState.AddTransition(EnemyTransition.SeeSoldier,EnemyStateID.Attack);
+        chaseState.AddTransition(EnemyTransition.CanAttack,EnemyStateID.Attack);
 
         EnemyAttackState attackState = new EnemyAttackState(mFSMSystem, this);
-        attackState.AddTransition(EnemyTransition.NoSoldier,EnemyStateID.Chase);
+        attackState.AddTransition(EnemyTransition.LostSoldier,EnemyStateID.Chase);
         
         mFSMSystem.AddState(chaseState,attackState);
     }
